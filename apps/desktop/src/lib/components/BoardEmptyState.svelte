@@ -2,21 +2,25 @@
 	import zenSvg from '$lib/assets/dzen-pc.svg?raw';
 	import { Project } from '$lib/backend/projects';
 	import { BaseBranch } from '$lib/baseBranch/baseBranch';
-	import { editor } from '$lib/editorLink/editorLink';
+	import { SETTINGS, type Settings } from '$lib/settings/userSettings';
 	import { getGitHost } from '$lib/gitHost/interface/gitHost';
 	import { openExternalUrl } from '$lib/utils/url';
 	import { BranchController } from '$lib/vbranches/branchController';
-	import { getContext, getContextStore } from '@gitbutler/shared/context';
+	import { getContext, getContextStore, getContextStoreBySymbol } from '@gitbutler/shared/context';
 	import Icon from '@gitbutler/ui/Icon.svelte';
+	import type { Writable } from 'svelte/store';
 
 	const gitHost = getGitHost();
 	const baseBranch = getContextStore(BaseBranch);
 	const branchController = getContext(BranchController);
+	const userSettings = getContextStoreBySymbol<Settings, Writable<Settings>>(SETTINGS);
 
 	const project = getContext(Project);
 
 	async function openInVSCode() {
-		openExternalUrl(`${$editor}://file${project.vscodePath}/?windowId=_blank`);
+		openExternalUrl(
+			`${$userSettings.defaultCodeEditor}://file${project.vscodePath}/?windowId=_blank`
+		);
 	}
 </script>
 
