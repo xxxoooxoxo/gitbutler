@@ -46,7 +46,7 @@
 			{/if}
 			{#if item.lineNumber}
 				<ContextMenuItem
-					label="Open in VSCode"
+					label="Open in Editor"
 					on:click={() => {
 						projectPath &&
 							openExternalUrl(

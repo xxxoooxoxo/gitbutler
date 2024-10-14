@@ -70,7 +70,7 @@
 							<div class="empty-board__suggestions__link__icon">
 								<Icon name="vscode" />
 							</div>
-							<span class="text-12">Open in VSCode</span>
+							<span class="text-12">Open in Editor</span>
 						</button>
 					</div>
 				</div>

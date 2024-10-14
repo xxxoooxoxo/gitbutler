@@ -98,8 +98,8 @@
 							}
 							contextMenu.close();
 						} catch {
-							console.error('Failed to open in VSCode');
-							toasts.error('Failed to open in VSCode');
+							console.error('Failed to open in editor');
+							toasts.error('Failed to open in editor');
 						}
 					}}
 				/>
